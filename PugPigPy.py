@@ -572,7 +572,7 @@ class PugPigPy(object):
 
             # Check dimensions
             if getsize(join(edition_path, bname)) != pkg['size']:
-                logger.debug('Download probably invalid')
+                logging.debug('Download probably invalid')
 
         return downloads
 
@@ -731,8 +731,10 @@ if __name__ == "__main__":
         ppp.renew_token()
     elif r['state'] == 'inactive':
         ppp.login(USERNAME, PASSWORD)
+    elif r['state'] == 'active':
+        logging.info("Your subscription is: " + r['state'])
     else:
-        logger.warning("Current state is: " + r['state'])
+        logging.warning("Current state is: " + r['state'])
 
     # List editions
     for i, e in enumerate(ppp.editions):
