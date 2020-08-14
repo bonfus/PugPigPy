@@ -734,7 +734,7 @@ if __name__ == "__main__":
     elif r['state'] == 'active':
         logging.info("Your subscription is: " + r['state'])
     else:
-        logging.warning("Current state is: " + r['state'])
+        logging.warning("Current state is: " + r['state'] + " " + r['message'])
 
     # List editions
     for i, e in enumerate(ppp.editions):
